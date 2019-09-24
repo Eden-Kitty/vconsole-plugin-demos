@@ -1,21 +1,20 @@
 # vconsole-plugin-demos
+### 1、vconsole添加tab，并添加扫描二维码
+``` js
+import VConsole from 'vconsole'
+import VconsoleTab from './vsconsole-tab.js'
 
-> A Vue.js project
+window.vConsole = new VConsole()
+let myPlugin = new VConsole.VConsolePlugin('my_plugin', '唤起手机app')
+new VconsoleTab(myPlugin, [
+  {name: 'app测试', url: 'xxx://pushWindow?url='}
+])
+window.vConsole.addPlugin(myPlugin)
 
-## Build Setup
-
-``` bash
-# install dependencies
-npm install
-
-# serve with hot reload at localhost:8080
-npm run dev
-
-# build for production with minification
-npm run build
-
-# build for production and view the bundle analyzer report
-npm run build --report
 ```
 
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+### 2、api
+| 参数 | 备注 |
+| --- | --- | 
+| name | 唤起app名 |
+| url | 打开当前app方法 |
